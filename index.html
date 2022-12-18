@@ -1,83 +1,289 @@
-<html>
-  <head>
-    <style>
-      /* Add some styling for the sidebar */
-      .sidebar {
-        height: 100%;
-        width: 200px;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background: linear-gradient(-45deg, #ffb3b3, #fff);
-        background-size: 400% 400%;
-        animation: gradient 15s ease infinite;
-        overflow-x: hidden;
-        padding-top: 20px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>resume</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
       }
-
-      /* Style the links inside the sidebar */
-      .sidebar a {
-        display: block;
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
         color: black;
-        padding: 16px;
-        text-decoration: none;
+        font-size: 12pt;
       }
-
-      /* On mouse-over, add a grey background color */
-      .sidebar a:hover {
-        background-color: #ddd;
-        color: black;
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
       }
-
-      /* Style the main content */
-      .main {
-        margin-left: 200px;
-        padding: 16px;
-        background-color: #fac8c8;
+      h2, h3, h4 {
+        page-break-after: avoid;
       }
-
-      /* Add the animation for the gradient */
-      @keyframes gradient {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- The sidebar -->
-    <div class="sidebar">
-      <a href="#home">Home</a>
-      <a href="#portfolio">Portfolio</a>
-    </div>
-
-    <!-- The main content -->
-    <div class="main">
-      <!-- A section for the home page -->
-      <div id="home">
-        <h1>portfolio</h1>
-        <p>cmol parot burito:</p>
-        <img src="https://i.imgur.com/KGuAOGq.jpeg" alt="Cute parrot" style="width=300px;">
-      </div>
-
-      <!-- A section for the portfolio page -->
-      <div id="portfolio">
-        <h1>My Portfolio</h1>
-        <p>Here are some examples of my work:</p>
-        <ul>
-          <li>proj 1 </li>
-          <li>proj 2</li>
-          <li>proj 3</li>
-        </ul>
-      </div>
-    </div>
-  </body>
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<img src="pfp.png" style="border-radius:50%;width:250px;height:250px;">
+<div class="center">
+<p><span><span class="smallcaps"><span>Uroš
+Mijajlović</span></span></span><br />
+<a href = "mailto: urosmijajlovic@gmail.com">urosmijajlovic@gmail.com</a><br />
+</p>
+</div>
+<p><span> <span class="smallcaps">Education</span></span><br />
+<br />
+<strong>University of Belgrade School of Electrical
+Engineering</strong><br />
+Degree in Software Engineering 2021-2025<br />
+</p>
+<p><span> <span class="smallcaps">Experience</span></span><br />
+</p>
+<p><strong>Microsoft Accomplishments for 1st November - 1st December
+(Internship still in progress)</strong><br />
+<em>Software Engineer Intern</em> November 2022 - March 2023<br />
+</p>
+<ul>
+<li><p>By self-initiative developed a tool for optimized investigating
+of unexpected Core CPU Scheduler behavior and a Core CPU Scheduler
+simulator that was used to find edge cases for optimization
+purposes</p></li>
+<li><p>Black box reverse engineered the entire CPU Core Scheduler
+behavior</p></li>
+<li><p>Developed and implemented algorithm for optimization of CPU usage
+on Core Scheduler that made it up to 30% more efficient</p></li>
+</ul>
+<p><strong>Notable Experience</strong><br />
+</p>
+<ul>
+<li><p>Found exploits in 7 different online video game competitions
+(including Samsung), enabling exploiter to win all the grand real-world
+prizes</p></li>
+<li><p>Found 0-Day vulnerability on Moodle platform of AMRES, enabling
+access to hidden test cases, as well as solutions to said test
+cases.</p></li>
+<li><p>Found an exploit on the state level of ”Dabar” competition that
+made it possible to view all questions 24 hours before the competition
+began.</p></li>
+</ul>
+<p><span> <span class="smallcaps">Skills</span></span><br />
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Python:</td>
+<td style="text-align: left;">Automation, Django, Video Generation,
+Image Recognition, Flask</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cyber Security:</td>
+<td style="text-align: left;">Malware Analysis, Python Scripting,
+Reverse Engineering</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Photoshop:</td>
+<td style="text-align: left;">Image Manipulation, Product Design</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C#:</td>
+<td style="text-align: left;">Unity Game Development, Web Servers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Android Development:</td>
+<td style="text-align: left;">Java</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Web/Mobile Development:</td>
+<td style="text-align: left;">HTML/CSS, React, React Native</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C/C++:</td>
+<td style="text-align: left;">Competitive Programming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cloud platforms:</td>
+<td style="text-align: left;">Azure</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Containerization Tools:</td>
+<td style="text-align: left;">Docker, ContainerD</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Virtualization:</td>
+<td style="text-align: left;">Hyper-V</td>
+</tr>
+</tbody>
+</table>
+<p><span> <span class="smallcaps">Projects</span></span><br />
+<br />
+<span><strong>TikTokBot</strong></span> <span><em>Python,
+FFmpeg</em></span> https://www.tiktok.com/@reddit.it<br />
+App that filters most popular Reddit posts, scrapes them, then
+synthesizes the voice for the said post, and generates images that
+correspond to the current part of the voiceover, combines all of that
+into a video that it posts to TikTok.<br />
+<span><strong>TikeBot</strong></span> <span><em>Python,
+Selenium</em></span><br />
+App for automatic online instant checkout, as soon as the wanted product
+is in stock on websites tike.rs and buzzsneakers.com<br />
+<span><strong>TikeMonitor</strong></span> <span><em>Python, Flask,
+Discord API</em></span><br />
+Scraper for websites tike and buzzsneakers, that through both e-mail,
+it’s own website, and discord bot notified the user of changes in both
+instore and online stock of a certain product, with a feature of
+replying back to the email, which would auto checkout the wanted
+item.<br />
+<span><strong>TikeRaffleBot</strong></span> <span><em>Python, Burp,
+Fiddler</em></span><br />
+App that using an exploit in the raffle system of tike and buzz,
+increased chances of winning a raffle by 1000x<br />
+<span><strong>Marble Racer Live</strong></span>
+<span><em>Python</em></span><br />
+Programs reads live feed of donations and comments, downloads usernames
+and profile photos of chosen viewers, edits map data of algodoo to put
+their images inside, and simulates a marble race for viewers with their
+profile pictures on TikTok.<br />
+</p>
+<p> </p>
+</body>
 </html>
